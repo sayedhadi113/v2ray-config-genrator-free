@@ -1,0 +1,7 @@
+{
+    "name": "V2Ray Server",
+    "image": "ubuntu:22.04",
+    "features": {},
+    "postCreateCommand": "bash setup_v2ray.sh",
+    "forwardPorts": [443]
+}
