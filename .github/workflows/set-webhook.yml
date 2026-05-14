@@ -6,7 +6,7 @@ on:
       webhook_url:
         description: 'URL Apps Script Webhook'
         required: true
-        default: 'https://script.google.com/macros/s/AKfycbz_Els4gVPXjqT2TV4287laG0UiHdaTj0jNQTeltvuV0DQMYnaPnGfPBBU0ZVzt7UaA/exec'
+        default: 'https://script.google.com/macros/s/AKfycbxk_kZaysAaIrjITv_uQwcwGAwK8YOGxt4M2Hdql76-kTzKUKkwwbPtxRMhBcZYFwgD/exec'
 
 jobs:
   set-webhook:
