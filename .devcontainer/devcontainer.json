@@ -1,7 +1,15 @@
 {
-    "name": "V2Ray Server",
-    "image": "ubuntu:22.04",
-    "features": {},
-    "postCreateCommand": "bash setup_v2ray.sh",
-    "forwardPorts": [443]
+  "name": "V2Ray-Temp",
+  "image": "ubuntu:22.04",
+  "features": {},
+  "postCreateCommand": "bash .devcontainer/setup_v2ray.sh",
+  "forwardPorts": [443],
+  "remoteEnv": {
+    "V2RAY_UUID": "${localEnv:V2RAY_UUID}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
+  }
 }
