@@ -1,0 +1,22 @@
+name: Set Telegram Webhook
+
+on:
+  workflow_dispatch:  # فقط با اجرای دستی
+    inputs:
+      webhook_url:
+        description: 'URL Apps Script Webhook'
+        required: true
+        default: 'https://script.google.com/macros/s/AKfycbz_Els4gVPXjqT2TV4287laG0UiHdaTj0jNQTeltvuV0DQMYnaPnGfPBBU0ZVzt7UaA/exec'
+
+jobs:
+  set-webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Telegram Webhook
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          WEBHOOK_URL: ${{ github.event.inputs.webhook_url }}
+        run: |
+          RESPONSE=$(curl -s -X GET "https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?url=${WEBHOOK_URL}")
+          echo "Response: $RESPONSE"
+          echo "$RESPONSE" | grep -q '"ok":true' && echo "✅ Webhook تنظیم شد!" || echo "❌ خطا در تنظیم Webhook"
